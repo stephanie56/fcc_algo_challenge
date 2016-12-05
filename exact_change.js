@@ -22,67 +22,67 @@ function checkCashRegister(price, cash, cid) {
     change = "Insufficient Funds";
   }
   else {
-    change = findChanges(changeDue, cid);
+    change = findChanges(changeDue, cid);;
   }
 
   function findChanges(changes, arr){
   coinsAndBills = {
-    hundgred: 0,
-    twenty: 0,
-    ten: 0,
-    five: 0,
-    one: 0,
-    quarter: 0,
-    dime: 0,
-    nickel: 0,
-    penny: 0,
+    "ONE HUNDRED": 0,
+    "TWENTY": 0,
+    "TEN": 0,
+    "FIVE": 0,
+    "ONE": 0,
+    "QUARTER": 0,
+    "DIME": 0,
+    "NICKEL": 0,
+    "PENNY": 0,
   };
 
   while(changes > 0){
     if(changes >= 100 && arr[8][1] > 0){
         changes -= 100;
         arr[8][1] -= 100;
-        coinsAndBills.hundgred += 100;
+        coinsAndBills["ONE HUNDRED"] += 100;
     }
     else if(changes >= 20 && arr[7][1] > 0 ){
         changes -=20;
         arr[7][1] -= 20;
-        coinsAndBills.twenty += 20;
+        coinsAndBills["TWENTY"] += 20;
     }
     else if(changes >= 10 && arr[6][1] > 0){
         changes -= 10;
         arr[6][1] -= 10;
-        coinsAndBills.ten += 10;
+        coinsAndBills["TEN"] += 10;
     }
     else if(changes >= 5 && arr[5][1] > 0){
         changes -= 5;
         arr[5][1] -= 5;
-        coinsAndBills.five += 5;
+        coinsAndBills["FIVE"] += 5;
     }
     else if(changes >= 1 && arr[4][1] > 0){
         changes -= 1;
         arr[4][1] -= 1;
-        coinsAndBills.one += 1;
+        coinsAndBills["ONE"] += 1;
     }
     else if(changes >= 0.25 && arr[3][1] > 0){
         changes -= 0.25;
         arr[3][1] -= 0.25;
-        coinsAndBills.quarter += 0.25;
+        coinsAndBills["QUARTER"] += 0.25;
     }
     else if(changes >= 0.1 && arr[2][1] > 0){
       changes -= 0.1;
       arr[2][1] -= 0.1;
-      coinsAndBills.dime += 0.1;
+      coinsAndBills["DIME"] += 0.1;
     }
     else if(changes >= 0.05 && arr[1][1] > 0){
       changes -= 0.05;
       arr[1][1] -= 0.05;
-      coinsAndBills.nickel += 0.05;
+      coinsAndBills["NICKEL"] += 0.05;
     }
     else if (changes >= 0.01 && arr[0][1] > 0){
       changes -= 0.01;
       arr[0][1] -= 0.01;
-      coinsAndBills.penny += 0.01;
+      coinsAndBills["PENNY"] += 0.01;
     }
     else {
       changes = 0;
@@ -93,6 +93,7 @@ function checkCashRegister(price, cash, cid) {
 
 }
 
+  // return change
   console.log(change);
 
 }
@@ -109,4 +110,4 @@ function checkCashRegister(price, cash, cid) {
 // ["TWENTY", 60.00],twentyNum = 3
 // ["ONE HUNDRED", 100.00]] hunNum = 1
 
-checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
+checkCashRegister(3.26, 100.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
