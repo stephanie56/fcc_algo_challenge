@@ -1,7 +1,9 @@
-/* Wherefore Art Thou */
+/* Wherefore Art Thou Solution */
 
 // make a function that looks though an array of objects (first argument) and returns an array of all objects that have matching property and value pairs.
 // each property and value pairs of the source object has to be present in the object from the collection if it is to be included in the returned array.
+
+// Coded by Stephanie Zeng https://github.com/stephanie56
 
 function whatIsInAName(collection, source){
 
