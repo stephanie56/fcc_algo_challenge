@@ -9,10 +9,24 @@ function checkCashRegister(price, cash, cid) {
   var changeDue = cash - price;
   var cashInDrawer = 0; // sum of cid
   var change;
+  var coinsAndBills;
 
+  for(var i = 0; i < cid.length; i++){
+    cashInDrawer += cid[i][1];
+  }
 
-function findChanges(changes, arr){
-  var coinsAndBills = {
+  if(cashInDrawer === changeDue){
+    change = "Closed";
+  }
+  else if (cashInDrawer < changeDue){
+    change = "Insufficient Funds";
+  }
+  else {
+    change = findChanges(changeDue, cid);
+  }
+
+  function findChanges(changes, arr){
+  coinsAndBills = {
     hundgred: 0,
     twenty: 0,
     ten: 0,
@@ -75,16 +89,11 @@ function findChanges(changes, arr){
     }
   }
 
-  console.log(coinsAndBills);
+  return coinsAndBills;
 
 }
 
-findChanges(changeDue, cid);
-
-  /* testing console.log */
-  //console.log("changeDue is: " + changeDue);
-  //console.log("cashInDrawer is: " + cashInDrawer);
-  //console.log("change is: " + change);
+  console.log(change);
 
 }
 
@@ -100,4 +109,4 @@ findChanges(changeDue, cid);
 // ["TWENTY", 60.00],twentyNum = 3
 // ["ONE HUNDRED", 100.00]] hunNum = 1
 
-checkCashRegister(3.26, 100.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
+checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
