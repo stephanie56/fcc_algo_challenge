@@ -38,6 +38,8 @@ function checkCashRegister(price, cash, cid) {
     "PENNY": 0,
   };
 
+
+
   while(changes > 0){
     if(changes >= 100 && arr[8][1] > 0){
         changes -= 100;
@@ -49,7 +51,7 @@ function checkCashRegister(price, cash, cid) {
         arr[7][1] -= 20;
         coinsAndBills["TWENTY"] += 20;
     }
-    else if(changes >= 10 && arr[6][1] > 0){
+    else if(changes >= 10 && arr[6 ][1] > 0){
         changes -= 10;
         arr[6][1] -= 10;
         coinsAndBills["TEN"] += 10;
@@ -83,6 +85,8 @@ function checkCashRegister(price, cash, cid) {
       changes -= 0.01;
       arr[0][1] -= 0.01;
       coinsAndBills["PENNY"] += 0.01;
+
+      console.log(changes)
     }
     else {
       changes = 0;
