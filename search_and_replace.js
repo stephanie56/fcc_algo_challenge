@@ -9,15 +9,26 @@
 
 // Coded by Stephanie Zeng https://github.com/stephanie56
 
-
-
 function myReplace(str, before, after) {
 
-  // step 1: cut str into an arr[]
-  // step 2: find the index of before in arr[]
-  // step 3: arr.splice(indexOfRemovedItem, 1, after)
+ if(before.charAt(0) == before.charAt(0).toLowerCase()){
+   after = after.charAt(0).toLowerCase() + after.slice(1);
+ }
+  else {
+    after = after.charAt(0).toUpperCase() + after.slice(1);
+  }
 
-  return str;
+ var arr = str.split(" ");
+
+  arr.forEach(function(word){
+   if(word == before){
+     arr.splice(arr.indexOf(word), 1, after);
+   }
+ });
+
+ str = arr.join(" ");
+
+ return str;
 }
 
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
