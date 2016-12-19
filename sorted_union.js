@@ -8,14 +8,10 @@ function uniteUnique(arr) {
     return a.concat(b);
   },[]);
 
- for(var i = 1; i < array.length; i++){
-   if (array[i] === array[i-1]){
-     array[i-1] = 0;
-   }
- }
-
-console.log(array);
-  //console.log(array);
+ var result = array.filter(function(elm, pos){
+   return array.indexOf(elm) == pos;
+ });
+ return result;
 }
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
