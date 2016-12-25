@@ -3,17 +3,26 @@
 
 function binaryAgent(str) {
   var bi = str.split(" ");
+  console.log(bi);
+
+  for(var i=0; i < bi.length; i++){
+    bi[i] = calBi(bi[i]); // array of char code
+  }
+
+  var newarr = bi.forEach(function(elm){
+      return String.fromCharCode(elm);
+  });
 
   function calBi (text){
     var sum = 0;
     for(var i = 0; i < 8; i++){
       if(text[i] == 1){
-        sum += Math.pow(2, (6-i));
+        sum += Math.pow(2, (7-i));
       }
     }
-  }
+    return sum;
+  } //calBi ends
 
-  console.log(sum);
 
 }
 
