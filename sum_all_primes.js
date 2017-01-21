@@ -3,31 +3,25 @@
 // The provided number may not be a prime.
 
 function sumPrimes(num) {
- var notprimes = [];
- var sum = 0;
- for(var p = 2; p <= num; p++){
-   for(var d = 2; d < 10; d++){
-     if(p%d === 0 && p !== d){
-       notprimes.push(p);
-       break;
+ var result = 0;
+ var arr = [2,3,4,5,6,7,8,9]
+
+ for(var i = 2; i <= num; i++){
+   var counter = 0;
+   for(var index = 0; index < arr.length; index++){
+     var d = arr[index];
+     if(i%d === 0){
+       counter++;
      }
-   } // loop through 2 - 9
- }
+   }
+   if(counter === 0 || (counter === 1 && i < 10)){
+     result += i;
+   }
+ } // for loop ends
 
- for(var i = 0; i <= num; i++){
-   sum += i;
- }
+  //var result = numbers.reduce(function(sum, num){ return sum+num;}, 0);
+  console.log(result);
 
- var notprimesum = notprimes.reduce(function(a,b){
-  return a+b;
-  }, 0);
-
-  var result = sum - notprimesum - 1;
-  console.log(notprimes);
-  console.log("not prime sum:" + notprimesum);
-  console.log(sum);
-  console.log(notprimesum);
-  console.log(sum - notprimesum - 1);
 }
 
 sumPrimes(977);

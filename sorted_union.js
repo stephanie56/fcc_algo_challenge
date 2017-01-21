@@ -9,7 +9,7 @@ function uniteUnique(arr) {
   },[]);
 
  var result = array.filter(function(elm, pos){
-   return array.indexOf(elm) == pos;
+   return array.indexOf(elm) == pos; // remove duplicate numbers
  });
  return result;
 }
