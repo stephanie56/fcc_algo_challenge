@@ -2,47 +2,34 @@
 // can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
 
 function smallestCommons(arr) {
-var smallest_common = 0;
-var counter = 1;
-var numbers = [];
-for(var i = arr[0]; i <= arr[1]; i++)
-  {
-    numbers.push(i);
+var r = arr[0] - arr[1];
+var range = []; // output [1,2,3,4,5]
+var counter = 2;
+if(r < 0){
+  for(var i = arr[0]; i <= arr[1]; i++){
+    range.push(i);
   }
+}
+else {
+  for(var i = arr[1]; i <= arr[0]; i++){
+    range.push(i);
+  }
+}
+// assume that 5 is the smallest common
+var base = range[range.length-1];
+var smallest_common = base;
+for(var i = 0; i < range.length; i++){
+  while(smallest_common%range[i] !== 0){
+    smallest_common = base * counter;
+    counter++;
+    console.log("step " + i + " and the current number " + smallest_common);
+  }
+  console.log("step " + i + " and the smallest common is " +smallest_common);
+}
 
-smallest_common = arr[1] * counter;
-var index = numbers.length;
-
-while(){
- for(var i = 0; i < index - 1; i++){
-   if(smallest_common%numbers[index] == 0 && index >= 0){
-     index--;
-   }
-   else{
-     break;
-   }
- }
+console.log(smallest_common);
 
 }
 
 
-
-
-
-
-  //console.log(numbers);
-}
-
-
-smallestCommons([1,5]);
-
-// numbers.forEach(function(n){
-//   if(smallest_common%n === 0){
-//     console.log('yes');
-//     return true;
-//   }
-//   else{
-//     console.log("no");
-//     return false;
-//   }
-// });
+smallestCommons([5,1]);
