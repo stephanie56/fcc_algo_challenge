@@ -16,18 +16,24 @@ else {
   }
 }
 // assume that 5 is the smallest common
-var base = range[range.length-1];
-var smallest_common = base;
-for(var i = 0; i < range.length; i++){
-  while(smallest_common%range[i] !== 0){
-    smallest_common = base * counter;
-    counter++;
-    console.log("step " + i + " and the current number " + smallest_common);
-  }
-  console.log("step " + i + " and the smallest common is " +smallest_common);
-}
+var smallest_common = range[range.length-1];
+var base = smallest_common;
+var newarr = range.filter(function(number){
+   if(smallest_common%number===0){
+     return number;
+   }
+  });
+while (newarr.length !== range.length){
+ smallest_common = base * counter;
+ newarr = range.filter(function(number){
+    if(smallest_common%number===0){
+      return number;
+    }
+   });
+ counter++;
+ }
 
-console.log(smallest_common);
+ console.log(smallest_common);
 
 }
 
