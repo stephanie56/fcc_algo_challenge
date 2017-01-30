@@ -1,25 +1,18 @@
 function steamrollArray(arr) {
   var newarr = [];
-  var array = arr.map(function(item){
-    if(!Array.isArray(item)){
-      return item;
+  arr.forEach(function(item){
+    if (Array.isArray(item)){
+      newarr = newarr.concat(steamrollArray(item));
     }
-    else{
-        steamrollArray(item);
+    else {
+     newarr.push(item);
     }
   });
 
-  console.log(array);
-  // if(Array.isArray(arr)){
-  //   arr.forEach(function(item){
-  //     return streamrollArray(item);
-  //   });
-  // }
-  // else{
-  //   newarr.push(arr)
-  // }
-  //console.log(newarr);
+  return newarr;
 }
+
+steamrollArray([1, {}, [3, [[4]]]]);
 
 
 steamrollArray([1, [1,2]]);
