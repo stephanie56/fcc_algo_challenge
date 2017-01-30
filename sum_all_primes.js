@@ -16,6 +16,7 @@ function sumPrimes(num) {
    }
    if(counter === 0 || (counter === 1 && i < 10)){
      result += i;
+     arr.push(i);
    }
  } // for loop ends
 
